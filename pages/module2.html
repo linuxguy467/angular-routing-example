@@ -1,0 +1,302 @@
+
+<HTML>
+<HEAD>
+    <TITLE> CEN 4930 Module 2 </TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" LINK="#0000DD" VLINK="#DD00DD">
+
+<HR>
+
+<div style="text-align: center;">
+    <H2> CEN 4930 Cyberphysical Systems </H2>
+    <H2> Module 2.  Design of Embedded Real-Time Software </H2>
+    &copy 2013-2016 by Janusz Zalewski
+</div>
+
+<HR>
+
+
+<H2>Objectives</H2>
+
+The student will learn:
+<MENU>
+    <LI> what are the key concepts in designing embedded software
+    <LI> what are the models used in embedded and real-time software design
+    <LI> what are the major tools for building models of embedded real-time software
+    <LI> how to access professional literature for articles on the subject.
+</MENU>
+
+<H2>Guest Faculty</H2>
+
+<MENU>
+    <LI> It is the instructor's intention to invite for each lecture
+        a recognized expert in the field to express opinions and respond to some
+        of the students' comments made on the electronic DISCUSSION FORUM in CANVAS
+
+        <!--
+        <A HREF="http://elearning.fgcu.edu/" TARGET="_top"> ANGEL </A>.
+        -->
+
+        This will give the students a broader and better view of the subject area, and
+        enhance their knowledge by brief interaction with top-level professionals
+        in Embedded Systems.
+    <LI> Dr. <A HREF="http://simula.no/people/bselic"> Bran V Selic</A>,
+        formerly at IBM Rational Software and IBM Distinguished Engineer (now retired)
+        was a principal designer of ObjecTime tool, which evolved into Rose RealTime, one of the major tools for real-time
+        software design.  He is is currently President of Malina Software Corp., a Canadian company that provides consulting services.
+        I am approaching him to answer a few questions from the students.
+    <LI> Mr. <A HREF="http://stephenmellor.com/"> Stephen J. Mellor</A>, previously
+        Chief Scientist of the Embedded Systems Division at Mentor Graphics Corporation and
+        founder of Project Technology (1985), currently calls himself a <I> freeter</I>.
+        He is most widely known as a co-author (with Paul T. Ward) of "Structured Development for Real-Time Systems"
+        (Vols. 1-3, Prentice Hall, 1983), the book which laid the groundwork for the development menthodologies of real-time software.
+        <!--
+        <LI> Dr. <A HREF="http://www.mefeedia.com/entry/episode-73-real-time-systems-with-bruce-powel-douglass/3930875/">
+        Bruce Powel Douglass</A> is a Chief Evangelist at Telelogic, a company that currently distributes Rhapsody
+        (originally developed by iLogix), another tool for designing embedded real-time systems, which is used for
+        designing real-time systems.  Listening to his
+        <A HREF="http://se-radio.net/podcast/2007-10/episode-73-real-time-systems-bruce-powel-douglass"> interview</A>
+        is required for this module (see below in <B>Student Activities</B>).
+        -->
+
+        <!--
+        http://www-306.ibm.com/software/rational/bios/selic.html
+        -->
+
+</MENU>
+
+<H2>Introduction</H2>
+
+The principal question regarding Embedded Software Design is the following:
+<BR><BR><div style="text-align: center;">
+    <B>"What are the essential models that describe the structure and behavior of
+        real-time embedded systems?</B>
+</div><BR>
+
+For simple systems, the structure can be simple and it is usually an automaton, that
+is, a sequential program, whose behavior is described by a state-transition diagram,
+which can be usually modeled as a flowchart.  This is illustrated in Figure 1, for
+reading a temperature sensor.<BR>
+
+<div style="text-align: center;">
+    <IMG SRC="pages/img/Flowchart.jpg" ALIGN=Center BORDER=0 WIDTH=300 HEIGHT=500><BR>
+    Fig. 1.  Example of a Simple Model Describing Behavior of an Embedded System<BR>
+    (for Temperature Sensor Readout).<BR>
+</div>
+
+<P>
+    This kind of model is usually sufficient
+    for devices, such as a microwave oven or a washing machine.  For more complicated
+    systems, such as traffic light control system, the number of variables is so large
+    that simplistic models are inadequate to capture system's behavior and more
+    sophisticated approaches need to be used.  Several kinds of mathematical models for
+    real-time computing systems have been developed in the past, of which the following
+    are worth mentioning:
+
+<MENU>
+    <LI> finite state machines
+    <LI> differential equations
+    <LI> queuing theory
+    <LI> rule-based computations.
+</MENU>
+
+In this course, we focus on finite state machine models.  In order to be useful, the
+model has to capture the principal characteristics of the real-time embedded system,
+which allow predicting its behavior and thus controlling it.  Normally, on
+the basis of System and Software Requirements Specification for the device, the
+designer should be able to produce the first model of the system, very primitive but
+including the necessary information of interfacing our software with the surrounding
+environment: Context Diagram.  Producing the Context Diagram is the first step in good
+real-time software design, because it defines the interactions with the environment,
+by describing all input/output characteristics, including:
+
+<MENU>
+    <LI> sources, destinations and directions of all information flows to and from the
+        software, that is, input/output information
+    <LI> physical form and logical format of the information flow
+    <LI> quantities, units of measure, and accuracy of information
+    <LI> data types and ranges of validity
+    <LI> illegal values and error messages
+    <LI> timing and frequency of temporal elements of information flow
+    <LI> operator actions, etc.
+</MENU>
+
+This is illustrated in Figure 2 for a microwave oven controller, as far as sources
+and destinations of information flows (signals) are concerned, without detailing
+their physical form, quantities, ranges, timing, etc.<BR>
+
+<div style="text-align: center;">
+    <IMG SRC="pages/img/OvenContextDiag.jpg" ALIGN=Center BORDER=0 WIDTH=500 HEIGHT=450><BR>
+    Fig. 2.  Example of a Context Diagram for a Microwave Oven Controller.<BR>
+</div>
+
+<P>
+    The input/output information determines the top-level software architecture of
+    real-time embedded software, because it can be always categorized into four basic
+    groups:
+
+<MENU>
+    <LI> device (physical process) inputs and outputs
+    <LI> operator interface I/O
+    <LI> communication link I/O
+    <LI> database inputs and outputs.
+</MENU>
+
+The idea of dividing I/O information into different categories, which later determine
+the software architecture, follows the fundamental engineering principle of separation
+of concerns, formulated by David Parnas in the early 1970s ("On the Criteria to be
+Used in Decomposing Systems into Modules, Communications of the ACM, Vol. 15, No. 12,
+pp. 1053-1058, December 1972).  Consequently, the input/output dependencies determine
+the basic components of the embedded software architecture, enhanced by the
+computational (processing) and timing components, as listed below:
+
+<MENU>
+    <LI> sensor/actuator component
+    <LI> user interface component
+    <LI> communication link component
+    <LI> database component
+    <LI> processing component, and
+    <LI> timing component.
+</MENU>
+
+The two additional components, included In addition to the four primary components
+corresponding to four groups of input/output information, are the necessary parts
+of the software architecture, because:
+
+<MENU>
+    <LI> the computational (processing) component is the glue connecting all primary
+        components, which either supply data for or receive data from processing
+    <LI> the timing component, which is necessary in most real-time systems.
+</MENU>
+
+This assumption leads to a generic top-level architecture of a real-time embedded
+system composed of a few software components interacting with the environment and
+exchanging data among themselves, what is illustrated in Figure 3, in a form which
+be called a soccer-ball architecture (device I/O is split into the Measurement
+and Control modules).<BR>
+
+<CENTER>
+    <IMG SRC="pages/img/GenericArch.jpg" ALIGN=Center BORDER=0 WIDTH=700 HEIGHT=500><BR>
+    Fig. 3.  Generic Software Architecture of a Real-Time Embedded System.<BR>
+</CENTER>
+
+<P>
+    From this top-level view of the software being developed, one can derive more
+    detailed design models using any of the two primary approaches or their mixture:
+
+<MENU>
+    <LI> Structured (functional) approach, or
+    <LI> Object-oriented approach.
+</MENU>
+
+Using special software development tools, such as
+<A HREF="http://www-142.ibm.com/software/products/us/en/ratirhapfami/"> Rhapsody </A> and
+<A HREF="http://www-306.ibm.com/software/awdtools/developer/technical/"> Rose
+    RealTime </A>, helps in automatizing the design process.
+
+<H2>Student Activities (to be completed by Midnight, Monday, September 5, 2016)</H2>
+<MENU>
+    <B>Read one of the two articles:
+        <LI> Either the one by Bran Selic:
+            Turning Clockwise: Using UML in the Real-Time Domain -- from Communications of the ACM (No. 10/1999);<BR>
+            you can download it accessing ACM Digital Library via the FGCU Library, or read it   on Canvas.</B>
+    <!--
+         <A HREF="http://delivery.acm.org/10.1145/320000/317675/p46-selic.pdf?key1=317675&key2=6296145211&coll=GUIDE&dl=GUIDE&CFID=51840954&CFTOKEN=80994987">
+         Turning Clockwise: Using UML in the Real-Time Domain</A> from Communications of the ACM (1999)</B>.
+    -->
+
+    <LI> <B>Or the one from March 2006 </A> Issue of Embedded Systems Programming on
+        "Demystifying UML", by Stephen Mellor, available from
+        <A HREF="http://www.stephenmellor.com/uploads/DMU,%20web,%20DeMystifying%20UML,.pdf">
+            Mr. Mellor's website.</A></B>
+        <!--
+             <A HREF="http://www.embedded.com/columns/showArticle.jhtml?articleID=180205522">
+        -->
+    <LI> Optionally, read Chapter 2, on
+        <A HREF="pages/pdf/Ch2Class.pdf"> Specification and Design of Real-Time Software </A>
+        from "Real-Time Software Development - An Engineering Approach" by Andrew Kornecki
+        and Janusz Zalewski.
+</MENU>
+<!--
+     <A HREF="http://csdl.computer.org/dl/mags/so/2003/05/s5019.pdf">
+     The Pragmatics of Model-Driven Development</A> from IEEE Software (2003),
+
+<LI> Optionally, read one of the following articles by Bruce P. Douglass: either a 3-part
+     article on Designing Real-Time Systems with UML:
+     <A HREF="http://www.embedded.com/98/9803fe2.htm">Part I,</A>
+     <A HREF="http://www.embedded.com/98/9804fe3.htm">Part II,</A> and
+     <A HREF="http://www.embedded.com/98/9805fe3.htm">Part III</A>, or
+     a Chapter on <A HREF="http://www.awprofessional.com/title/0321160762">
+     Analyzing Object Behavior</A> from "Real-Time UML" book (you need to register
+     with the publisher's website to download a copy).  The Chapter may be difficult
+     to read as an excerpt from the entire book, but is worthwhile taking look at.
+<LI> <B>Listen to Bruce Douglass
+     <A HREF="http://se-radio.net/podcast/2007-10/episode-73-real-time-systems-bruce-powel-douglass"> interview</A>
+     on Software Engineering Radio.</B>
+-->
+
+<B>Note.</B> Please note that link to the first article (Selic) is from
+a professional magazine, Communications of the ACM.  FGCU subscribes to this publication
+in the electronic format, so if you can't access it from home (non-FGCU IP addresses), you
+can have access from any FGCU computer by connectiing to the Library.
+
+<H2>Assessment (all items must be completed by Midnight, Monday, September 5, 2016)</H2>
+<OL>
+    <LI> Every student is required to make a contribution to the Discussion Forum (in ANGEL) named
+        "Dr. Selic' Article" <B>AND</B> "Mr. Mellor's Paper,"
+        based on respective readings referred to above (in Student Activities).</LI><BR>
+    <LI> All contributions referred to above must be made
+    in a form of at least 3-sentence statement (minimum 30 words) outlining:</LI>
+        <MENU>
+    <LI> either what you have learned from the reading</LI>
+    <LI> or/and what you found missing in this reading</LI>
+    <LI> or/and what your have not understood from the reading.</LI>
+        </MENU>
+</OL>
+<B>Note.</B> Each posting which meets the criteria outlined above and in respective
+Discussion Forum will automatically receive 1 (one) point.
+Exceptional postings may get 1 point extra, while poor or missing postings may get
+1 point penalty.
+
+<H2>Follow-up</H2>
+Read Guest Faculty comments from 2016 Module 2 Discussion Forums (and respond, if
+necessary), once they are available.
+
+<H2>References</H2>
+<PRE>
+<EM><B>Douglass B.P.</B></EM>
+Designing Real-Time Systems With UML. Pts. I, II and III,
+Embedded Systems Programming, Vol. 11, Nos. 3, 4 and 5, 1998
+
+<EM><B>Douglass B.P.</B></EM>
+Real-Time Design Patterns,
+Addison-Wesley, Boston, Mass, 2003
+
+<EM><B>Douglass B.P. </B></EM>
+Real-Time UML,
+Addison-Wesley, Boston, Mass., 2004
+
+<EM><B>Mellor P.</B></EM>
+Demystifying UML,
+Embedded Systems Design, Vol. 19, No. 3, pp. 22-33, March 2006
+
+<EM><B>Parnas D.</B></EM>
+On the Criteria to be
+Used in Decomposing Systems into Modules,
+Communications of the ACM, Vol. 15, No. 12, pp. 1053-1058, December 1972
+
+<EM><B>Selic B.</B></EM>
+Turning Clockwise: Using UML in the Real-Time Domain,
+Communications of the ACM, Vol. 42 , No. 10, pp. 46-54, October 1999
+
+<EM><B>Selic B.</B></EM>
+The Pragmatics of Model-Driven Development,
+IEEE Software, Vol. 20, No. 5, pp. 19-25, September/October 2003
+
+<EM><B>Selic B. et al.</B></EM>
+Real-Time Object-Oriented Modeling,
+John Wiley and Sons, 1994
+
+</PRE>
+</BODY>
+</HTML>

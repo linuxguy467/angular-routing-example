@@ -1,0 +1,351 @@
+<HTML>
+<HEAD>
+    <TITLE> CEN 4930 Module 1 </TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" LINK="#0000DD" VLINK="#DD00DD">
+
+<HR>
+
+<div style="text-align: center;">
+    <H2> CEN 4930 Cyberphysical Systems </H2>
+    <H2> Module 1.  Introduction to Embedded & Cyberhysical Systems<BR>
+    </H2>
+    &copy 2013-2016 by Janusz Zalewski<BR>
+</div>
+
+<HR>
+
+
+<H2>Objectives</H2>
+
+The student will learn:
+<MENU>
+    <LI> what are the main concepts in Embedded and Cyberphysical Systems and their programming
+    <LI> what are the essential steps in developing software for Embedded and Cyberphysical Systems
+    <LI> what are the basic programming constructs applied in Embedded and Cyberphysical Systems
+    <LI> how to find literature to update and extend knowledge of Embedded and Cyberphysical
+        Systems and their programming.
+</MENU>
+
+<H2>Guest Faculty</H2>
+
+<MENU>
+    <LI> It is the instructor's intention to invite for each lecture
+        a recognized expert in the field to express opinions and respond to some
+        of the students' comments made on the electronic DISCUSSION FORUM in
+        <A HREF="http://canvas.fgcu.edu/" TARGET="_top"> CANVAS </A>.
+        This will give the students a broader and better view of the subject area, and
+        enhance their knowledge by brief interaction with top-level professionals
+        in Embedded and Cyberphysical Systems.<BR><BR>
+
+    <LI> The experts who are approached to respond to student questions
+        related to "Introduction to Embedded and Cyberphysical Systems" are:
+
+        <MENU>
+    <LI> <A HREF="http://pages.erau.edu/~kornecka/" TARGET="_top"> Dr. Andrew Kornecki</A>
+        from Embry-Riddle Aeronautical University, who will try and answer questions
+        related to all layers of software for embedded and cyberphysical systems.  Dr. Kornecki has over
+        thirty years of experience in designing, teaching and consulting in the area of
+        safety critical embedded real-time systems, most recently on projects in avionics
+        and medical devices, both for private industry (Guidant) and government (Federal
+        Aviation Administration).
+
+    <LI> <A HREF="http://chc61.fgcu.edu/titus.aspx">
+        Dr. Jonathan A. Titus</A>, who will try and answer questions related to the hardware
+        level of embedded systems.  Dr. Titus worked for a number of computer and electronics magazines,
+        including  Design News, EDN, and ECN, most recently as a  Senior Technical Editor for Embedded Systems
+        of the <A HREF="http://www.publitek.com/news/writer-and-editor-jon-titus-to-retire/">
+            ECN Magazine</A> and was a designer of  <A HREF="http://chc61.fgcu.edu/mark8.aspx">
+            MARK-8</A> the first hobby microcomputer.  He will
+        answer questions related to his involvement in microcomputer design and his book:
+        <A HREF="http://www.sealevel.com/knowledgebase/article.asp?article_id=65">
+            The Digital I/O Handbook </A> - an essential manual for understanding an embedded
+        system input-output (copies will be available for class use).
+</MENU>
+
+</MENU>
+
+<H2>Introduction</H2>
+
+The principal question regarding Embedded and Cyberphysical Systems Programming is the following:
+<BR><BR><div style="text-align: center;">
+    <B>"What are the essential issues, which make programming for Embedded and Cyberphysical Systems <BR>
+        different from conventional programming?"</B>
+</div><BR>
+
+Nowadays, computers become a significant part of our everyday life, determining
+the way we acquire knowledge, interact with people, conduct business and
+act professionaly.  In the form of microprocessors and microcontrollers, they penetrate
+every single aspect of our lives by becoming <I>embedded</I> in washing machines,
+microwave ovens, cash registers, teller machines, cell phones, PDA's, watches,
+digital cameras, cars, traffic lights, gates, trains, railroad crossings, airplanes,
+spacecraft, air traffic control, etc., etc., not only controlling chemical plants,
+nuclear reactors, and insurance and banking operations, in which they have been used
+for some time.  It is the <I>embedded</I> feature, which makes them different from
+traditional computers, therefore a different approach has to be used to program them.
+In addition, most of these systems, if not all of them, are interconnected, allowing access
+from remote locations, essentially to anyone, thus becoming <I>cyberphysical</I> systems,
+so the issue of information security becomes critically important.
+
+<P>
+    The IEEE Standard Glossary of Software Engineering Terminology (IEEE Std. 610-12),
+    <A HREF="http://computer.org/sevocab">accessible online</A>,
+    defines an <B>Embedded Computer System</B> as <U><I> a computer system that is a part
+    of a larger system and performs some of the requirements of that system.</I></U>
+    It means that an embedded computer is always a part of a larger installation, whose
+    purpose is not necessarily (and usually is not) computational.  Among the essential
+    characteristics of embedded computers one can find the following:
+
+<UL>
+    <LI> interaction with the environment via sensors and actuators
+    <LI> real-time operation to respond to external stimuli or service requests on time
+    <LI> inherently concurrent operation to perform multiple functions at a time
+    <LI> strict integration of hardware and software in a host/target development
+        environment
+    <LI> particular focus on reliabile and safe operation.
+</UL>
+
+Due to the widespread use of embedded and cyberphysical systems, it is essential for every Software
+Engineering or Computer Science student to learn and understand principles of
+Embedded Systems Programming.  This is especially true for a special kind of
+embedded systems called <B> real-time systems</B>, which are defined as <U><I>computer
+    systems with bounded response time.</I></U>  Nowadays, due to pervasiveness of the Internet
+and other networks, embedded systems have expanded due to connectivity and are becoming
+what is known as <B>Cyberphysical Systems</B>, that is, <I>embedded systems with Internet connectivity.</I>
+This first lecture is only an introduction
+to Embedded Systems and provides some background information on the basic concepts
+used in developing them.
+
+<P>
+    The "big picture" of building such systems may be captured in four basic layers,
+    as illustrated in Figure 1.  The Specification and Design layer includes requirements
+    formulation, designing software architecture, mapping requirements to the design,
+    and developing detailed design with the use of special notation, such as
+    <A HREF="http://www.ibm.com/developerworks/rational/library/769.html">UML</A>
+    (Unified Modeling Language).
+    In the Software Engineering program, these aspects of software development are covered in
+    two separate courses, respectively:
+<MENU>
+    <LI> CEN 3073 Software Specifications
+    <LI> <A HREF="http://itech.fgcu.edu/faculty/zalewski/CEN4065/CEN4065.html">
+        CEN 4064 Software Architecture and Design </A>
+</MENU>
+
+The professional development is done with support of automatic design tools, such as
+<A HREF="http://www-03.ibm.com/software/products/en/ratirhapdesiforsystengi"> Rhapsody </A> or
+<A HREF="http://www-306.ibm.com/software/awdtools/developer/technical/"> Rose
+    RealTime</A>, which are now controlled by IBM.
+These tools are based on finite-state machines (similar to state diagrams) and may
+generate most of the code for the <B>target system</B>, that is, <U><I>an embedded
+    system for which the software is being developed</I></U>.  A different category of
+tools that are also used at this level, those based on differential equation models,
+such as <A HREF="http://www.mathworks.com"> Matlab/Simulink </A> or
+<A HREF="http://www.ni.com/matrixx/"> MatrixX </A>, can also generate target code,
+based on a different principle more suitable for a different course
+<I>CDA 4170 Data Acquisition and Control Systems</I>, which is
+periodically offered as an elective at FGCU as well.
+
+<div style="text-align: center;">
+    <IMG SRC="pages/img/Chap0Fig1.jpg" ALIGN=Center BORDER=0 WIDTH=700 HEIGHT=360><BR>
+    Fig. 1.  Essential Layers of Developing Embedded and Cyberphysical Systems.<BR>
+</div>
+
+<P>
+    An overview of the tools for real-time embedded applications is presented in Figure 2.
+    It maps the layered diagram from Figure 1 onto a sequence of tool uses, from
+    requirements specification, through programming, down to the code running on the
+    target system under RTOS (Real-Time Operating System).  However, the picture presented
+    in Figure 2 is incomplete in a sense that a significant amount of embedded systems is
+    designed down to the hardware level and involves the circuit and chip design process,
+    with such high-level tools as
+    <A HREF="http://ece-research.unm.edu/jimp/vlsi/slides/vhdl.html"> VHDL </A> or <A HREF="http://www.verilog.com"> Verilog
+</A>.  This course, however, is strictly a <I>programming course</I>, and although
+    embedded hardware design is an important issue, it lies beyond the scope of this particular class
+    and normally covered at FGCU in a class on
+    <A HREF="http://itech.fgcu.edu/faculty/zalewski/CDA3200/CDA3200.html">Digital Systems</A>.<BR><BR>
+
+<div style="text-align: center;">
+    <IMG SRC="pages/img/ToolCategories1.jpg" ALIGN=Center BORDER=0 WIDTH=700 HEIGHT=500><BR>
+    Fig. 2.  Classification of High-Level Tools for Developing Embedded Systems.<BR>
+</div>
+
+<P>
+    Developing software designs with graphical models, produced by the tools such as
+    Rhapsody or Rose RealTime, facilitates the development
+    process, however, a good deal of programming is still needed, even if the code is
+    generated by the design tool.  Programming environments, called Integrated Developemnt
+    Environments (IDE's), as shown in Figure 2, assist in the programming process by
+    integrating such programming activities as editing, compiling, executing and debugging
+    programs.  One such environment, which has gained wide popularity among
+    programmers is <A HREF="http://www.eclipse.org/"> Eclipse</A>.  Its value lies
+    in the fact that it can act as an IDE for many different languages, including
+    C/C++ and Java, and it is open source.
+
+<P>
+    Regarding the use of Programming Language at level 2 from Figure 1, the developers
+    need to know specific programming constructs to ensure reliable and safe operation of
+    an embedded application.  This involves mostly constructs related to <B>concurrency</B>
+    (in particular languages called <I>multitasking</I> or <I>multithreading</I>),
+    to control program behavior with respect to such phennomena as:
+<MENU>
+    <LI> mutual exclusion
+    <LI> deadlock
+    <LI> starvation
+    <LI> re-entrancy
+    <LI> context switching
+    <LI> priority inversion
+    <LI> drift and jitter, etc.
+</MENU>
+
+<P>
+    Surprisingly, the language which is best suited to resolve some of these issues and
+    has respective features built in, <A HREF="http://www.gnat.com/"> Ada</A>, is not
+    very popular among embedded systems developers, except for the military applications.
+    Other languages, such as Java, have features somehow contradicting the best programming
+    practices for embedded systems, therefore a separate standard has been developed for
+    <A HREF="http://www.rtsj.org/"> Real-Time Java.</A>
+    Languages most commonly used in embedded systems, that is C/C++ and assembly, do not
+    have respective constructs at all, therefore they rely heavily on underlying operating
+    system kernel constructs (third level in Figure 1), among which the most important are:
+
+<MENU>
+    <LI> scheduling (assigning units of concurrency to the processor)
+    <LI> intertask sychronization and communication (to let the tasks coordinate operation)
+    <LI> signals (notifying tasks/threads about events that occur)
+    <LI> timers (allowing to set time for generating specific events).
+</MENU>
+
+A wide array of real-time kernels have been developed over the last 30 years or so,
+that incorporate some or all of the features listed above.  For use in this course,
+we have available one of the most successful kernels, VxWorks, with its Eclipse-based
+IDE named
+<A HREF="http://www.windriver.com/products/development_suite">
+    Workbench</A> (courtesy Wind River Systems), which replaced their older IDE named
+Tornado.  VxWorks is particularly suited for, so called, hard real-time systems, with
+strictly bounded response time, but softer embedded systems, where embedded computer's
+response time is not that critical, can use other operating systems, such as a version
+of Linux, Windows CE and many others.
+
+<P>
+    Although hardware issues, extremely important in developing embedded systems, are
+    not the focus of this class, students need to learn some fundamental programming
+    concepts related to hardware, such as interrupt handling, device interfacing and
+    register access, bus operation, device drivers, etc.  Knowledge of a variety of
+    peripheral devices used in embedded
+    systems, such as analog-to-digital and digital-to-analog converters, timers and
+    counters, UART's (Universal Asynchronous Receiver Transmitter), stepping motors,
+    LED's (Light Emitting Diodes) and LCD's (Liquid Crystal Displays), keypads, and others,
+    and their interfacing to specific buses from the programmer's standpoint is illustrated
+    in the <A HREF="http://www.sealevel.com/knowledgebase/article.asp?article_id=65">
+    The Digital I/O Handbook </A>.
+
+<P>
+    Finally, recognizing the fact that students must be aware of the operation of
+    general purpose microprocessors or microcontrollers and specific embedded systems
+    processors, such as ARM, MC68HC11, or Intel 8751, including DSP's (Digital Signal
+    Processors), PLC's (Programmable Logic Controllers), as well as respective memory
+    devices and chips, we only mention them here, discussing related issues in one lecture,
+    with an example of one particular 8-bit microcontroler from ATMEL .  We do the same with
+    knowledge related to building hardware that involves designing ASIC's (Application Specific
+    Integrated Circuits), PLD's (Programmable Logic Devices), FPGA's (Field Programmable
+    Gate Arrays), etc., all important to embedded systems engineering, but covered
+    in this course only at the VHDL programming level (VHDL stand for V[ery High Speed Integrated
+    Circuits] Hardware Design Language).  In summary, in this class we use a top-down approach to learning
+    about Embedded and Cyberphysical Systems, from developing software designs, to the use of programming
+    languages, to real-time kernel operation, and hardware, as illustrated in Figure 1.
+
+<H2>Student Activities (to be completed by Midnight, Tuesday, August 30, 2016)</H2>
+<MENU>
+    <LI> Find another definition of a Cyberphysical System (different from the one given
+        above) and post it to a respective Discussion Forum in CANVAS.  Please note
+        that duplicate definitions (quoted by other students) are not allowed, so your
+        posting must not use a definition posted previously on this Discussion Forum.
+    <LI> Find another definition of a Real-Time System (different from the one given
+        above) and post it to the Discussion Forum in CANVAS.  Please note
+        that duplicate definitions (quoted by other students) are not allowed.
+    <LI> Read the <A HREF="../COP4931/pdf/Ch01AKdraft01.pdf"> Introductory Chapter </A> to
+        "Real-Time Software Development - An Engineering Approach" by Andrew Kornecki
+        and Janusz Zalewski
+    <LI> Read one selected chapter from the <A HREF="http://www.sealevel.com/knowledgebase/article.asp?article_id=65">
+        The Digital I/O Handbook </A> by Jonathan A. Titus and Tom O'Hanlan.
+    <LI> Optional Readings:
+        <MENU>
+    <LI> Read a paper on another <A HREF="../COP4931/pdf/FranciaESP.pdf"> Embedded Systems Programming</A>
+        class (by G.A. Francia), available via this <A HREF="../COP4931/pdf/FranciaESP.pdf">
+            link</A>.
+    <LI> In the <A HREF="http://www.netlibrary.com"> Netlibrary </A> to which FGCU
+        subscribes (under <B>eBook Downloadable Content</B>), find an
+        electronic version of "Programming Embedded Systems in C and C++" by Michael Barr
+        and read Chapter 1 "Introduction".
+</MENU>
+</MENU>
+
+<H2>Assessment (all items must be completed by Tuesday Midnight - August 30, 2016)</H2>
+<OL>
+    <LI> Every student is required to post definitions of a Cyberphysical System and a
+        Real-Time System, on a respective Discussion Forum in CANVAS.  Please logon to
+        CANVAS to follow the posting procedures.
+    <LI> Every student is required to make a contribution to the Discussion Forum named
+        "Embedded and Real-Time Systems - Basic Questions" (in CANVAS), based on readings
+        of Module #1 (this text) and Chapter 1 from the book by Kornecki/Zalewski,
+        as listed in Student Activities above.
+    <LI> Every student is required to make a contribution to the Discussion Forum named
+        "The Digital I/O Handbook" (in CANVAS), based on reading of the selected chapter
+        from the Handbook referred to above (in Student Activities).
+    <LI> <B>Note.</B> The contributions referred to in (2) and (3) above should be made
+        in a form of at least 3-sentence statement, comment or question (minimum 30 words)
+        outlining:
+        <MENU>
+    <LI> either what you have learned from the reading
+    <LI> or what you have found missing in this reading
+    <LI> or what you have not understood from the reading.
+        </MENU>
+</OL>
+<B>Note.</B> Each posting which meets the criteria outlined above and in respective
+Discussion Forum will automatically receive 0.5 (half) point.
+Exceptional postings may get up to 1 point extra, while poor or missing postings may get
+up to 1 point penalty.
+
+<H2>Follow-up</H2>
+Read Guest Faculty comments from 2016 Module 1 Discussion Forums (and respond, if
+necessary), once they are available.  This activity will be announced later on, and
+may get you additional points.
+
+<H2>References</H2>
+<PRE>
+<EM><B>Barr M.</B></EM>
+Programming Embedded Systems in C and C++,
+O'Reilly, Sebastopol, Calif, 1999
+
+<EM><B>Francia G.A. III</B></EM>
+Embedded Systems Programming,
+Journal of Computing in Small Colleges, Vol. 17, No. 2, pp. 217-223, December 2001
+
+<EM><B>IEEE Std. 610-12</B></EM>
+IEEE Standard Glossary of Software Engineering Terminology,
+IEEE, New York, 1990
+
+<EM><B>van Katwijk J., Zalewski J.</B></EM>
+<A HREF="http://itech.fgcu.edu/faculty/zalewski/COP4931/pdf/KatwijkChapter1.pdf">Introduction to Real-Time Software Systems</A>. Draft Edition,
+Delft, The Netherlands, 1998
+
+<EM><B>Kornecki A., Zalewski J.</B></EM>
+Real-Time Software Development - An Engineering Approach,
+unpublished, Daytona Beach, Fla, 2003
+
+<EM><B>Lee E.A., Seshia S.A.</B></EM>
+<A HREF="http://leeseshia.org/">Introduction to Embedded Systems, A Cyber-Physical Systems Approach.</A>. Second Edition
+LeeSeshia.org, 2015
+
+<EM><B>Titus J., T. O'Hanlan</B></EM>
+<A HREF="http://www.sealevel.com/knowledgebase/article.asp?article_id=65">The Digital I/O Handbook</A>,
+Sealevel Systems, 2004
+
+</PRE>
+</BODY>
+</HTML>
+
+
+<!--
+sepc.twi.tudelft.nl/~toet/onderwijs/in4024/dictaat/dictaat.pdf
+-->

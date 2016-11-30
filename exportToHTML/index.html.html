@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>index.html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #999999; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(128,128,128); font-style: italic; }
+.s1 { color: rgb(0,0,0); }
+.s2 { color: rgb(0,0,0); }
+.s3 { color: rgb(0,0,255); font-weight: bold; }
+.s4 { color: rgb(0,0,128); font-weight: bold; }
+.s5 { color: rgb(0,128,0); font-weight: bold; }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+index.html</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">&lt;!-- index.html --&gt;</span><span class="s1"> 
+</span><span class="s2">&lt;!DOCTYPE </span><span class="s3">html</span><span class="s2">&gt;</span><span class="s1"> 
+</span><span class="s2">&lt;</span><span class="s4">html </span><span class="s3">ng-app=</span><span class="s5">&quot;scotchApp&quot;</span><span class="s2">&gt;</span><span class="s1"> 
+</span><span class="s2">&lt;</span><span class="s4">head</span><span class="s2">&gt;</span><span class="s1"> 
+    </span><span class="s0">&lt;!-- SCROLLS --&gt;</span><span class="s1"> 
+    </span><span class="s0">&lt;!-- load bootstrap and fontawesome via CDN --&gt;</span><span class="s1"> 
+    </span><span class="s2">&lt;</span><span class="s4">link </span><span class="s3">rel=</span><span class="s5">&quot;stylesheet&quot; </span><span class="s3">href=</span><span class="s5">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&quot;</span><span class="s2">/&gt;</span><span class="s1"> 
+    </span><span class="s2">&lt;</span><span class="s4">link </span><span class="s3">rel=</span><span class="s5">&quot;stylesheet&quot; </span><span class="s3">href=</span><span class="s5">&quot;css/font-awesome.min.css&quot;</span><span class="s2">/&gt;</span><span class="s1"> 
+    </span><span class="s2">&lt;</span><span class="s4">script </span><span class="s3">src=</span><span class="s5">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js&quot;</span><span class="s2">&gt;&lt;/</span><span class="s4">script</span><span class="s2">&gt;</span><span class="s1"> 
+ 
+    </span><span class="s0">&lt;!-- SPELLS --&gt;</span><span class="s1"> 
+    </span><span class="s0">&lt;!-- load angular and angular route via CDN --&gt;</span><span class="s1"> 
+    </span><span class="s2">&lt;</span><span class="s4">script </span><span class="s3">src=</span><span class="s5">&quot;https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js&quot;</span><span class="s2">&gt;&lt;/</span><span class="s4">script</span><span class="s2">&gt;</span><span class="s1"> 
+    </span><span class="s2">&lt;</span><span class="s4">script </span><span class="s3">src=</span><span class="s5">&quot;https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js&quot;</span><span class="s2">&gt;&lt;/</span><span class="s4">script</span><span class="s2">&gt;</span><span class="s1"> 
+    </span><span class="s2">&lt;</span><span class="s4">script </span><span class="s3">src=</span><span class="s5">&quot;script.js&quot;</span><span class="s2">&gt;&lt;/</span><span class="s4">script</span><span class="s2">&gt;</span><span class="s1"> 
+ 
+</span><span class="s2">&lt;/</span><span class="s4">head</span><span class="s2">&gt;</span><span class="s1"> 
+</span><span class="s2">&lt;</span><span class="s4">body </span><span class="s3">ng-controller=</span><span class="s5">&quot;mainController&quot;</span><span class="s2">&gt;</span><span class="s1"> 
+</span><span class="s0">&lt;!-- HEADER AND NAVBAR --&gt;</span><span class="s1"> 
+</span><span class="s2">&lt;</span><span class="s4">header</span><span class="s2">&gt;</span><span class="s1"> 
+    </span><span class="s2">&lt;</span><span class="s4">nav </span><span class="s3">class=</span><span class="s5">&quot;navbar navbar-default&quot;</span><span class="s2">&gt;</span><span class="s1"> 
+        </span><span class="s2">&lt;</span><span class="s4">div </span><span class="s3">class=</span><span class="s5">&quot;container&quot;</span><span class="s2">&gt;</span><span class="s1"> 
+            </span><span class="s2">&lt;</span><span class="s4">div </span><span class="s3">class=</span><span class="s5">&quot;navbar-header&quot;</span><span class="s2">&gt;</span><span class="s1"> 
+                </span><span class="s2">&lt;</span><span class="s4">a </span><span class="s3">class=</span><span class="s5">&quot;navbar-brand&quot; </span><span class="s3">href=</span><span class="s5">&quot;/&quot;</span><span class="s2">&gt;</span><span class="s1">Angular Routing Example</span><span class="s2">&lt;/</span><span class="s4">a</span><span class="s2">&gt;</span><span class="s1"> 
+            </span><span class="s2">&lt;/</span><span class="s4">div</span><span class="s2">&gt;</span><span class="s1"> 
+            </span><span class="s2">&lt;</span><span class="s4">ul </span><span class="s3">class=</span><span class="s5">&quot;nav navbar-nav navbar-right&quot;</span><span class="s2">&gt;</span><span class="s1"> 
+                </span><span class="s2">&lt;</span><span class="s4">li</span><span class="s2">&gt;&lt;</span><span class="s4">a </span><span class="s3">href=</span><span class="s5">&quot;#/&quot;</span><span class="s2">&gt;&lt;</span><span class="s4">i </span><span class="s3">class=</span><span class="s5">&quot;fa fa-home&quot;</span><span class="s2">&gt;&lt;/</span><span class="s4">i</span><span class="s2">&gt; </span><span class="s1">Home</span><span class="s2">&lt;/</span><span class="s4">a</span><span class="s2">&gt;&lt;/</span><span class="s4">li</span><span class="s2">&gt;</span><span class="s1"> 
+                </span><span class="s2">&lt;</span><span class="s4">li</span><span class="s2">&gt;&lt;</span><span class="s4">a </span><span class="s3">href=</span><span class="s5">&quot;#about&quot;</span><span class="s2">&gt;&lt;</span><span class="s4">i </span><span class="s3">class=</span><span class="s5">&quot;fa fa-shield&quot;</span><span class="s2">&gt;&lt;/</span><span class="s4">i</span><span class="s2">&gt; </span><span class="s1">About</span><span class="s2">&lt;/</span><span class="s4">a</span><span class="s2">&gt;&lt;/</span><span class="s4">li</span><span class="s2">&gt;</span><span class="s1"> 
+                </span><span class="s2">&lt;</span><span class="s4">li</span><span class="s2">&gt;&lt;</span><span class="s4">a </span><span class="s3">href=</span><span class="s5">&quot;#contact&quot;</span><span class="s2">&gt;&lt;</span><span class="s4">i </span><span class="s3">class=</span><span class="s5">&quot;fa fa-comment&quot;</span><span class="s2">&gt;&lt;/</span><span class="s4">i</span><span class="s2">&gt; </span><span class="s1">Contact</span><span class="s2">&lt;/</span><span class="s4">a</span><span class="s2">&gt;&lt;/</span><span class="s4">li</span><span class="s2">&gt;</span><span class="s1"> 
+            </span><span class="s2">&lt;/</span><span class="s4">ul</span><span class="s2">&gt;</span><span class="s1"> 
+        </span><span class="s2">&lt;/</span><span class="s4">div</span><span class="s2">&gt;</span><span class="s1"> 
+    </span><span class="s2">&lt;/</span><span class="s4">nav</span><span class="s2">&gt;</span><span class="s1"> 
+</span><span class="s2">&lt;/</span><span class="s4">header</span><span class="s2">&gt;</span><span class="s1"> 
+ 
+</span><span class="s0">&lt;!-- MAIN CONTENT AND INJECTED VIEWS --&gt;</span><span class="s1"> 
+</span><span class="s2">&lt;</span><span class="s4">div </span><span class="s3">id=</span><span class="s5">&quot;main&quot;</span><span class="s2">&gt;</span><span class="s1"> 
+ 
+    </span><span class="s0">&lt;!-- angular templating --&gt;</span><span class="s1"> 
+    </span><span class="s0">&lt;!-- this is where content will be injected --&gt;</span><span class="s1"> 
+ 
+    </span><span class="s2">&lt;</span><span class="s4">div </span><span class="s3">ng-view</span><span class="s2">&gt;&lt;/</span><span class="s4">div</span><span class="s2">&gt;</span><span class="s1"> 
+</span><span class="s2">&lt;/</span><span class="s4">div</span><span class="s2">&gt;</span><span class="s1"> 
+</span><span class="s2">&lt;/</span><span class="s4">body</span><span class="s2">&gt;</span><span class="s1"> 
+</span><span class="s2">&lt;/</span><span class="s4">html</span><span class="s2">&gt;</span></pre>
+</body>
+</html>
